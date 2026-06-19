@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gouri Wedding Invitation</title>
+
+<style>
+body{
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
+background:#ffe4ec;
+overflow-x:hidden;
+}
+
+#envelope{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+.envelope-box{
+font-size:120px;
+cursor:pointer;
+animation:shake 1s infinite;
+}
+
+@keyframes shake{
+0%{transform:rotate(0deg);}
+25%{transform:rotate(5deg);}
+50%{transform:rotate(-5deg);}
+100%{transform:rotate(0deg);}
+}
+
+#main{
+display:none;
+}
+
+.hero{
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:32px;
+color:#d1005d;
+}
+
+.card{
+background:white;
+margin:20px;
+padding:20px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,0,0,.15);
+}
+
+.photo{
+width:90%;
+display:block;
+margin:auto;
+border-radius:20px;
+margin-top:20px;
+}
+
+.firework{
+position:fixed;
+font-size:35px;
+animation:fall 5s linear infinite;
+}
+
+@keyframes fall{
+from{transform:translateY(-100px);}
+to{transform:translateY(100vh);}
+}
+
+.scratch{
+background:black;
+color:black;
+padding:20px;
+border-radius:15px;
+text-align:center;
+font-size:25px;
+}
+
+.scratch:hover{
+color:white;
+}
+
+.dance{
+font-size:60px;
+text-align:center;
+animation:dance 1s infinite;
+}
+
+@keyframes dance{
+0%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div id="envelope">
+<h2>📩 Wedding Invitation</h2>
+<div class="envelope-box" onclick="openInvite()">✉️</div>
+<p>Tap Envelope</p>
+</div>
+
+<div id="main">
+
+<audio id="music" autoplay loop>
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<div class="hero">
+<h1>❤️ Welcome Guest ❤️</h1>
+</div>
+<div class="card">
+<h2>💖 Saddam Gouri ❤️ Sabina Banu 💖</h2>
+
+<p>आप सादर आमंत्रित हैं हमारे निकाह समारोह में</p>
+
+<h3>📅 27 जनवरी 2026</h3>
+<h3>⏰ दोपहर 12:00 बजे</h3>
+
+<a href="https://maps.google.com" target="_blank">
+📍 Location
+</a>
+
+<br><br>
+
+<a href="tel:7296899341">
+📞 Call
+</a>
+
+</div>
+
+<div class="card">
+<img src="photo1.jpg" class="photo">
+</div>
+
+<div class="card">
+<img src="photo2.jpg" class="photo">
+</div>
+
+<div class="card">
+<img src="photo3.jpg" class="photo">
+</div>
+
+<div class="card">
+<img src="photo4.jpg" class="photo">
+</div>
+
+<div class="card">
+<img src="photo5.jpg" class="photo">
+</div>
+
+<div class="card">
+<div class="dance">
+🕺💃
+</div>
+<h2>Dancing Couple</h2>
+</div>
+
+<div class="card">
+<h2>🎁 Scratch Card</h2>
+
+<div class="scratch">
+27 January 2026
+</div>
+</div>
+
+<div class="card">
+<h2 id="countdown"></h2>
+</div>
+<script>
+
+function openInvite(){
+document.getElementById("envelope").style.display="none";
+document.getElementById("main").style.display="block";
+
+let music=document.getElementById("music");
+music.play();
+
+for(let i=0;i<40;i++){
+
+let fw=document.createElement("div");
+fw.className="firework";
+fw.innerHTML=["🎆","🎇","✨","💥","🎉"][Math.floor(Math.random()*5)];
+
+fw.style.left=Math.random()*100+"%";
+fw.style.top=Math.random()*100+"%";
+
+document.body.appendChild(fw);
+
+}
+
+}
+
+var countDownDate=new Date("Jan 27, 2026 12:00:00").getTime();
+
+setInterval(function(){
+
+var now=new Date().getTime();
+
+var distance=countDownDate-now;
+
+var days=Math.floor(distance/(1000*60*60*24));
+
+document.getElementById("countdown").innerHTML=
+"⏳ "+days+" Days Remaining";
+
+},1000);
+
+</script>
+
+</div>
+
+</body>
+</html>
+
